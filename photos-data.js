@@ -2,27 +2,119 @@
 // Re-run `node build-manifest.js` after adding/removing photos.
 const PHOTOS = {
   "Gen X Collection": {
+    "David Blaisdell": [
+      "photos/Gen X Collection/David Blaisdell/CDFB0220-8459-42D6-BAAE-22BC13C4424A.jpeg",
+      "photos/Gen X Collection/David Blaisdell/EB043B67-B48F-4368-BE12-046045BB5128.jpg",
+      "photos/Gen X Collection/David Blaisdell/F60A0911-2468-4429-92EF-285A2FCF7B7B.jpeg",
+      "photos/Gen X Collection/David Blaisdell/IMG_8398.jpg",
+      "photos/Gen X Collection/David Blaisdell/IMG_8454.jpg",
+      "photos/Gen X Collection/David Blaisdell/IMG_8492.jpg",
+      "photos/Gen X Collection/David Blaisdell/IMG_8526.jpg",
+      "photos/Gen X Collection/David Blaisdell/IMG_8555.jpg",
+      "photos/Gen X Collection/David Blaisdell/IMG_8561.jpg",
+      "photos/Gen X Collection/David Blaisdell/IMG_8591.jpg"
+    ],
+    "John Blaisdell": [
+      "photos/Gen X Collection/John Blaisdell/28867AE8-327A-4341-BBDC-84E7DE7136A3.jpg",
+      "photos/Gen X Collection/John Blaisdell/IMG_8376.jpeg",
+      "photos/Gen X Collection/John Blaisdell/IMG_8417.jpeg",
+      "photos/Gen X Collection/John Blaisdell/IMG_8419.jpg",
+      "photos/Gen X Collection/John Blaisdell/IMG_8423.jpg",
+      "photos/Gen X Collection/John Blaisdell/IMG_8425.PNG",
+      "photos/Gen X Collection/John Blaisdell/IMG_8516.jpg",
+      "photos/Gen X Collection/John Blaisdell/IMG_8551.jpg",
+      "photos/Gen X Collection/John Blaisdell/IMG_8581.jpg",
+      "photos/Gen X Collection/John Blaisdell/IMG_8588.jpg",
+      "photos/Gen X Collection/John Blaisdell/IMG_8616.jpg"
+    ],
+    "Sarah Blaisdell": [
+      "photos/Gen X Collection/Sarah Blaisdell/2CFDD40F-C61D-47DB-A38A-E5BCF7BEE4C3.jpg",
+      "photos/Gen X Collection/Sarah Blaisdell/A479DF0D-C4CA-49F8-A7B8-68B1A790462B.jpg",
+      "photos/Gen X Collection/Sarah Blaisdell/B2FF565E-0A83-4810-AE5B-7C68AEB35DD4.jpeg",
+      "photos/Gen X Collection/Sarah Blaisdell/IMG_8267.jpg",
+      "photos/Gen X Collection/Sarah Blaisdell/IMG_8384.jpeg",
+      "photos/Gen X Collection/Sarah Blaisdell/IMG_8388.jpeg",
+      "photos/Gen X Collection/Sarah Blaisdell/IMG_8451.jpg",
+      "photos/Gen X Collection/Sarah Blaisdell/IMG_8453.jpg",
+      "photos/Gen X Collection/Sarah Blaisdell/IMG_8512.jpg",
+      "photos/Gen X Collection/Sarah Blaisdell/IMG_8538.jpg",
+      "photos/Gen X Collection/Sarah Blaisdell/IMG_8564.jpg",
+      "photos/Gen X Collection/Sarah Blaisdell/IMG_8570.jpg",
+      "photos/Gen X Collection/Sarah Blaisdell/IMG_8578.jpg",
+      "photos/Gen X Collection/Sarah Blaisdell/IMG_8597.jpg"
+    ],
+    "Valerie Blaisdell": [
+      "photos/Gen X Collection/Valerie Blaisdell/8B811517-8EFE-4977-8EE6-9A2305F27921.jpg",
+      "photos/Gen X Collection/Valerie Blaisdell/52C19372-D31F-41F5-844B-D9915F909AF0.jpg",
+      "photos/Gen X Collection/Valerie Blaisdell/54BCD596-C778-422F-B56D-F4BA66A22671.jpg",
+      "photos/Gen X Collection/Valerie Blaisdell/239A475D-C5DE-46D7-BC33-5D03E6C598B0.jpg",
+      "photos/Gen X Collection/Valerie Blaisdell/37513A9E-F00B-4E97-9C6C-F0AEA01CE026.jpeg",
+      "photos/Gen X Collection/Valerie Blaisdell/40307FC2-98F6-419D-A4DF-B8CEB926D91F.jpg",
+      "photos/Gen X Collection/Valerie Blaisdell/AB676F81-16EA-40C1-9C7F-C49B2AE0D3AD.jpg",
+      "photos/Gen X Collection/Valerie Blaisdell/EA2AFF5C-1FB4-473C-AEF0-E803FAAD6726.jpeg",
+      "photos/Gen X Collection/Valerie Blaisdell/IMG_8279.PNG",
+      "photos/Gen X Collection/Valerie Blaisdell/IMG_8402.jpg",
+      "photos/Gen X Collection/Valerie Blaisdell/IMG_8403.jpg",
+      "photos/Gen X Collection/Valerie Blaisdell/IMG_8446.jpg",
+      "photos/Gen X Collection/Valerie Blaisdell/IMG_8468.jpg",
+      "photos/Gen X Collection/Valerie Blaisdell/IMG_8490.jpg",
+      "photos/Gen X Collection/Valerie Blaisdell/IMG_8524.jpg",
+      "photos/Gen X Collection/Valerie Blaisdell/IMG_8549.jpg",
+      "photos/Gen X Collection/Valerie Blaisdell/IMG_8560.jpg",
+      "photos/Gen X Collection/Valerie Blaisdell/IMG_8562.jpg",
+      "photos/Gen X Collection/Valerie Blaisdell/IMG_8574.jpg",
+      "photos/Gen X Collection/Valerie Blaisdell/IMG_8575.jpg",
+      "photos/Gen X Collection/Valerie Blaisdell/IMG_8580.jpg",
+      "photos/Gen X Collection/Valerie Blaisdell/IMG_8599.jpg"
+    ],
     "X Family Photos": [
       "photos/Gen X Collection/X Family Photos/A5F67893-185B-450A-B0A6-EB720FC739E9.jpg",
       "photos/Gen X Collection/X Family Photos/BF55319D-C9BE-40D2-9CD5-04D0402C96C9.jpeg",
+      "photos/Gen X Collection/X Family Photos/IMG_8357.jpeg",
       "photos/Gen X Collection/X Family Photos/IMG_8387.jpeg",
       "photos/Gen X Collection/X Family Photos/IMG_8397.jpg",
+      "photos/Gen X Collection/X Family Photos/IMG_8421.jpeg",
+      "photos/Gen X Collection/X Family Photos/IMG_8422.jpg",
       "photos/Gen X Collection/X Family Photos/IMG_8460.jpg",
       "photos/Gen X Collection/X Family Photos/IMG_8547.jpg"
     ]
   },
   "Gen Z-Kids Collection": {
+    "Aaron": [
+      "photos/Gen Z-Kids Collection/Aaron/IMG_8506.PNG"
+    ],
+    "Steven": [
+      "photos/Gen Z-Kids Collection/Steven/IMG_8527.jpg"
+    ],
     "Z Family Photos": [
+      "photos/Gen Z-Kids Collection/Z Family Photos/543AD91E-5FA8-49E2-B0A5-6C6266A986A8.jpeg",
       "photos/Gen Z-Kids Collection/Z Family Photos/FullSizeRender.jpeg",
       "photos/Gen Z-Kids Collection/Z Family Photos/IMG_8266.jpg",
       "photos/Gen Z-Kids Collection/Z Family Photos/IMG_8268.jpg",
       "photos/Gen Z-Kids Collection/Z Family Photos/IMG_8386.jpeg",
       "photos/Gen Z-Kids Collection/Z Family Photos/IMG_8438.jpg",
+      "photos/Gen Z-Kids Collection/Z Family Photos/IMG_8444.jpeg",
+      "photos/Gen Z-Kids Collection/Z Family Photos/IMG_8445.jpg",
+      "photos/Gen Z-Kids Collection/Z Family Photos/IMG_8466.jpg",
+      "photos/Gen Z-Kids Collection/Z Family Photos/IMG_8467.jpg",
+      "photos/Gen Z-Kids Collection/Z Family Photos/IMG_8472.jpg",
+      "photos/Gen Z-Kids Collection/Z Family Photos/IMG_8491.jpg",
+      "photos/Gen Z-Kids Collection/Z Family Photos/IMG_8508.jpg",
+      "photos/Gen Z-Kids Collection/Z Family Photos/IMG_8509.jpg",
+      "photos/Gen Z-Kids Collection/Z Family Photos/IMG_8510.jpg",
+      "photos/Gen Z-Kids Collection/Z Family Photos/IMG_8511.jpg",
+      "photos/Gen Z-Kids Collection/Z Family Photos/IMG_8515.jpg",
       "photos/Gen Z-Kids Collection/Z Family Photos/IMG_8529.jpg",
       "photos/Gen Z-Kids Collection/Z Family Photos/IMG_8530.jpg",
+      "photos/Gen Z-Kids Collection/Z Family Photos/IMG_8550.jpg",
+      "photos/Gen Z-Kids Collection/Z Family Photos/IMG_8563.jpg",
       "photos/Gen Z-Kids Collection/Z Family Photos/IMG_8566.jpg",
       "photos/Gen Z-Kids Collection/Z Family Photos/IMG_8568.jpg",
-      "photos/Gen Z-Kids Collection/Z Family Photos/IMG_8576.jpg"
+      "photos/Gen Z-Kids Collection/Z Family Photos/IMG_8576.jpg",
+      "photos/Gen Z-Kids Collection/Z Family Photos/IMG_8583.jpg",
+      "photos/Gen Z-Kids Collection/Z Family Photos/IMG_8600.jpg",
+      "photos/Gen Z-Kids Collection/Z Family Photos/IMG_8601.jpg",
+      "photos/Gen Z-Kids Collection/Z Family Photos/IMG_8609.jpg"
     ]
   }
 };

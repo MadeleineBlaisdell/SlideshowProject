@@ -398,54 +398,64 @@
   // falls back to the gradient placeholders below — remove this once you
   // have real folders in place.
   const DEMO_PEOPLE = [
-    { name: 'Grandpa/Carter Blaisdell & Grandma/Anita Blaisdell', books: ['Early Days', 'Friends', 'Pastor Years', 'First Family', 'Grandkids','Misc'] },
-    { name: 'Grandpa/Carter Blaisdell & Kay Blaisdell', books: ['Marriage', 'Grandkids','Additional Family','Misc'] },
+    { name: 'GrandpaCarter Blaisdell & GrandmaAnita Blaisdell', books: ['Early Days', 'Friends', 'Pastor Years', 'First Family', 'Grandkids','Misc'] },
+    { name: 'GrandpaCarter Blaisdell & Kay Blaisdell', books: ['Marriage', 'Grandkids','Additional Family','Misc'] },
     { name: 'Gen X Collection', books: ['X Family Photos','David Blaisdell', 'Valerie Blaisdell','Sarah Blaisdell','John Blaisdell','Beloved Pets'] },
     { name: 'Gen Z-Kids Collection', books: ['Z Family Photos','Aaron', 'Steven','Matthew','Christopher','Rainy','Madeleine','Brandon','Ethan','Andrew'] }
   ];
 
   // Shelves = people, books = each person's photo subfolders (photos/<Person>/<Book>/).
-  // Real shelves (from PHOTOS) are shown first; any demo placeholder shelf whose
-  // name doesn't match a real one is still shown after, so the library keeps
-  // looking full while you're still organizing the rest of the photos.
+  // A shelf can mix real books (from PHOTOS) with placeholder books (from
+  // DEMO_PEOPLE) at the same time — e.g. Gen X Collection shows the real
+  // "X Family Photos" book alongside placeholder spines for David, Valerie,
+  // etc. until those get real photo folders of their own.
+  function buildBookList(title, realBooks, demoLabels){
+    const realLabelSet = realBooks ? new Set(Object.keys(realBooks)) : new Set();
+    const labels = demoLabels
+      ? [...demoLabels, ...[...realLabelSet].filter(l => !demoLabels.includes(l))]
+      : [...realLabelSet].sort((a, b) => a.localeCompare(b));
+
+    return labels.map((label, i) => {
+      const key = { a: title, b: label };
+      const isReal = realLabelSet.has(label);
+      return {
+        label,
+        key,
+        count: isReal ? realBooks[label].length : photoCountFor(key),
+        isPlaceholder: !isReal,
+        colorVar: `--spine-${(i % 12) + 1}`
+      };
+    });
+  }
+
   function buildPersonShelves(){
     const photos = (typeof PHOTOS !== 'undefined') ? PHOTOS : {};
-    const people = Object.keys(photos).sort((a, b) => a.localeCompare(b));
+    const realTitles = Object.keys(photos);
+    const demoTitles = DEMO_PEOPLE.map(p => p.name);
+    const allTitles = [...new Set([...realTitles, ...demoTitles])];
 
-    const realShelves = people.map(person => {
-      const bookNames = Object.keys(photos[person]).sort((a, b) => a.localeCompare(b));
+    const shelves = allTitles.map(title => {
+      const demoEntry = DEMO_PEOPLE.find(p => p.name === title);
+      const books = buildBookList(title, photos[title], demoEntry ? demoEntry.books : null);
+      const isPlaceholder = books.every(b => b.isPlaceholder);
       return {
-        title: person,
-        note: `${bookNames.length} book${bookNames.length === 1 ? '' : 's'} on this shelf`,
-        isPlaceholder: false,
-        books: bookNames.map((name, i) => ({
-          label: name,
-          key: { a: person, b: name },
-          count: photos[person][name].length,
-          colorVar: `--spine-${(i % 12) + 1}`
-        }))
+        title,
+        note: `${books.length} book${books.length === 1 ? '' : 's'} on this shelf${isPlaceholder ? ' (placeholder)' : ''}`,
+        isPlaceholder,
+        books
       };
     });
 
-    const realTitles = new Set(people);
-    const placeholderShelves = DEMO_PEOPLE
-      .filter(person => !realTitles.has(person.name))
-      .map(person => ({
-        title: person.name,
-        note: `${person.books.length} book${person.books.length === 1 ? '' : 's'} on this shelf (placeholder)`,
-        isPlaceholder: true,
-        books: person.books.map((label, i) => {
-          const key = { a: person.name, b: label };
-          return {
-            label,
-            key,
-            count: photoCountFor(key),
-            colorVar: `--spine-${(i % 12) + 1}`
-          };
-        })
-      }));
-
-    return [...realShelves, ...placeholderShelves];
+    // Shelf display order, top to bottom. Anything not listed here (e.g. a
+    // newly-added real person folder) falls to the end, in alphabetical order.
+    return shelves.sort((a, b) => {
+      const ia = demoTitles.indexOf(a.title);
+      const ib = demoTitles.indexOf(b.title);
+      if (ia === -1 && ib === -1) return a.title.localeCompare(b.title);
+      if (ia === -1) return 1;
+      if (ib === -1) return -1;
+      return ia - ib;
+    });
   }
 
   // Old layout: shelves = years, books = the 12 fixed months (placeholder
